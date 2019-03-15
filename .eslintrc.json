@@ -1,0 +1,26 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "parser": "babel-eslint"
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:vue/recommended"
+    ],
+    "rules": {
+        "vue/html-self-closing": 0,
+        "quotes": [
+            1,
+            "double"
+        ],
+        "comma-dangle": "off",
+        "vue/max-attributes-per-line": "off",
+        "array-bracket-spacing": "off",
+        "vue/singleline-html-element-content-newline": "off",
+        "max-len": "off"
+    }
+}
