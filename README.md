@@ -1,6 +1,6 @@
-# origamid-css-grid
+# css-grid-teste
 
-> Curso de CSS Grid
+> Estudo de implementação de CRUD de veículos usando CSS grid e GraphQL para consumo de APIs.
 
 ## Build Setup
 
