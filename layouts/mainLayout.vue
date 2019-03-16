@@ -69,11 +69,12 @@
     .adicionar, .lista, .detalhes, .editar {
       // background-color: @white;
       border-radius: 16px;
-      box-shadow: 5px 5px 5px 0px #00000024
+      // box-shadow: @shadow;
     }
 
     .adicionar {
       grid-area: adicionar;
+      padding: 16px;
     }
 
     .lista {

@@ -10,7 +10,7 @@
 .item-lista {
     background: @white;
     border-radius: 16px;
-    box-shadow: 5px 5px 10px 0 @black;
+    box-shadow: @shadow;
     width: 100%;
 }
 </style>
