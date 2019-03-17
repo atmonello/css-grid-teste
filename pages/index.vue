@@ -3,6 +3,7 @@
     <header-logo slot="logo"></header-logo>
     <adicionar-veiculo slot="adicionar"></adicionar-veiculo>
     <container-lista slot="lista" :lista-veiculos="lista"></container-lista>
+    <detalhes-veiculo slot="detalhes"></detalhes-veiculo>
   </layout-main>
 </template>
 
@@ -12,6 +13,7 @@ import layoutMain from "../layouts/mainLayout.vue";
 import headerLogo from "../components/headerLogo.vue";
 import adicionarVeiculo from "../components/adicionarVeiculo.vue";
 import containerLista from "../components/containerLista.vue";
+import detalhesVeiculo from "../components/detalhesVeiculo.vue";
 
 export default {
     components: {
@@ -19,6 +21,7 @@ export default {
         containerLista,
         headerLogo,
         adicionarVeiculo,
+        detalhesVeiculo,
     },
     data() {
         return {
@@ -35,7 +38,7 @@ export default {
             data: {
                 query: `
                   query ListarTodosVeiculos {
-                    buscaVeiculo(page: 1, limit: 5) {
+                    buscaVeiculo(page: 1, limit: 6) {
                       total
                       edges {
                         node {

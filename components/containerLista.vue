@@ -1,7 +1,7 @@
 <template>
   <div class="container-lista">
     <p>Lista de veículos</p>
-    <item-lista v-for="(veiculo, index) in listaVeiculos" :key="index" :info-veiculo="veiculo.node"></item-lista>
+    <item-lista v-for="(veiculo, index) in listaVeiculos" :key="index" :info-veiculo="veiculo.node" @click.native="storeVeiculoSelecionado(veiculo.node)"></item-lista>
   </div>
 </template>
 
@@ -11,6 +11,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   grid-gap: 8px;
+  padding: 0 1em;
 }
 </style>
 
@@ -24,12 +25,19 @@ export default {
     },
     props: {
         listaVeiculos: {
-            required: true
+            required: true,
+            type: Array
         }
     },
     data() {
         return {
         };
+    },
+    methods: {
+        // Armazena o veículo selecionado na Vuex
+        storeVeiculoSelecionado(veiculo) {
+            this.$nuxt.$store.commit("setVeiculoSelecionado", veiculo);
+        }
     }
 };
 </script>

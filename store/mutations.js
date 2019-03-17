@@ -1,5 +1,9 @@
 export default {
-  toggle(state) {
-    state.teste = !state.teste;
-  }
+    setVeiculoSelecionado(state, data) {
+        state.veiculoSelecionado = data;
+    },
+
+    deleteVeiculoSelecionado(state) {
+        state.veiculoSelecionado = null;
+    }
 };

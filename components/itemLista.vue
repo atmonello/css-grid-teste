@@ -1,13 +1,14 @@
 <template>
-  <div class="item-lista container">
+  <div class="item-lista container" :class="{'selecionado': isSelected}">
     <!-- <p>{{ infoVeiculo }}</p> -->
+    <!-- <p>{{ getVeiculoSelecionadoID }}</p> -->
     <div class="row">
-      <div class="col-10">
+      <div class="col-8 col-md-10">
         <p class="marca">{{ infoVeiculo.marca }}</p>
         <p class="modelo">{{ infoVeiculo.modelo }}</p>
         <p class="ano_modelo">{{ infoVeiculo.ano_modelo }}</p>
       </div>
-      <div v-if="infoVeiculo.usado" class="col-2 vendido">
+      <div class="col-4 col-md-2 vendido">
         <i class="vendido-icon"></i>
       </div>
     </div>
@@ -21,16 +22,17 @@
   background: @white;
   border-radius: 16px;
   box-shadow: @shadow;
-  width: 100%;
+  // width: 100%;
   padding: 1em;
+  cursor: pointer;
 
   p {
     margin: 0;
     font-size: @ftSizeSmall;
+    text-transform: uppercase;
 
     &.marca {
       color: @text-carBrand;
-      text-transform: uppercase;
     }
 
     &.modelo {
@@ -58,6 +60,29 @@
     }
   }
 
+  &.selecionado {
+    background: @blue-md;
+    cursor: initial;
+    pointer-events: none;
+
+    p {
+      &.modelo {
+        color: @white;
+      }
+
+      &.ano_modelo {
+        color: @blue-md-alt;
+      }
+    }
+
+    .vendido {
+
+      .vendido-icon {
+        background-color: @white;
+      }
+    }
+  }
+
 }
 </style>
 
@@ -72,7 +97,28 @@ export default {
     },
     data() {
         return {
+            isSelected: false,
         };
+    },
+    computed: {
+        // eslint-disable-next-line vue/return-in-computed-property
+        getVeiculoSelecionadoID() {
+            if (this.$nuxt.$store.state.veiculoSelecionado !== null) {
+                // eslint-disable-next-line no-underscore-dangle
+                return this.$nuxt.$store.state.veiculoSelecionado._id;
+            }
+            return null;
+        }
+    },
+    watch: {
+        getVeiculoSelecionadoID(val) {
+            // eslint-disable-next-line no-underscore-dangle
+            if (val === this.infoVeiculo._id) {
+                this.isSelected = true;
+            } else {
+                this.isSelected = false;
+            }
+        }
     }
 };
 </script>

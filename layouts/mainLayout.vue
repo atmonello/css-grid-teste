@@ -74,16 +74,10 @@
         "adicionar adicionar adicionar adicionar"
         "lista lista detalhes detalhes"
         "lista lista editar editar";
-      grid-template-rows: 100px 1fr 100px;
+      grid-template-rows: 100px minmax(200px, 540px) 100px;
       grid-template-columns: repeat(2, minmax(100px, 1fr)) repeat(2, minmax(200px, 1fr));
       grid-row-gap: 8px;
       grid-column-gap: 16px;
-
-      .adicionar, .lista, .detalhes, .editar {
-        // background-color: @white;
-        border-radius: 16px;
-        // box-shadow: @shadow;
-      }
 
       .adicionar {
         grid-area: adicionar;
@@ -92,10 +86,12 @@
 
       .lista {
         grid-area: lista;
+        overflow-y: auto;
       }
 
       .detalhes {
         grid-area: detalhes;
+        // max-height: 400px;
       }
 
       .editar {

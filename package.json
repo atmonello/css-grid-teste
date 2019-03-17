@@ -1,7 +1,7 @@
 {
-  "name": "origamid-css-grid",
+  "name": "css-grid-teste",
   "version": "1.0.0",
-  "description": "Curso de CSS Grid",
+  "description": "Estudo de CSS Grid e GraphQL",
   "author": "atmonello",
   "private": true,
   "scripts": {
