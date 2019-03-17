@@ -29,7 +29,7 @@
     font-size: @ftSizeSmall;
 
     &.marca {
-      color: @black;
+      color: @text-carBrand;
       text-transform: uppercase;
     }
 

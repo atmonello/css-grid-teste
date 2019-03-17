@@ -68,8 +68,7 @@
     #content {
       background-color: @gray-lt;
       grid-column: span 8;
-      color: @black;
-      padding: 1em;
+      padding: 3em;
       display: grid;
       grid-template-areas:
         "adicionar adicionar adicionar adicionar"

@@ -1,5 +1,6 @@
 <template>
   <div class="container-lista">
+    <p>Lista de veículos</p>
     <item-lista v-for="(veiculo, index) in listaVeiculos" :key="index" :info-veiculo="veiculo.node"></item-lista>
   </div>
 </template>

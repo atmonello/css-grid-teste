@@ -2,7 +2,7 @@
   <div class="adicionar-veiculo container-fluid">
     <div class="row">
       <div class="col-11">
-        <input type="text" name="veiculo" placeholder="Adicionar um veículo">
+        <input type="text" name="veiculo" placeholder="Adicionar um veículo...">
       </div>
       <div class="col-1">
         <div class="add-icone"></div>
@@ -15,7 +15,7 @@
 @import "~assets/main.less";
 
 .adicionar-veiculo {
-    border-bottom: 1px solid @gray-dk;
+    border-bottom: 1px solid @gray-md;
     height: 100%;
 
     input {
@@ -23,6 +23,10 @@
       border: none;
       font-size: @ftSizeExtraLarge;
       width: 100%;
+
+      &::placeholder {
+        color: @gray-md;
+      }
     }
 
     .add-icone {
