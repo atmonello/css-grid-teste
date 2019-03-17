@@ -5,5 +5,10 @@ export default {
 
     deleteVeiculoSelecionado(state) {
         state.veiculoSelecionado = null;
+    },
+
+    toggleModalStatus(state, data) {
+        console.log("toggle modal status");
+        state.toggleModal = data;
     }
 };

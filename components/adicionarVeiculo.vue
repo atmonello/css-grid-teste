@@ -30,8 +30,7 @@
     }
 
     .add-icone {
-      background-color: @green-dk;
-      color: @green-dk;
+      background-color: @add-vehicle;
       height: 40px;
       mask-image: url("../assets/img/add.svg");
       width: 40px;

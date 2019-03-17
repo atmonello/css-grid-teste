@@ -4,6 +4,8 @@
     <adicionar-veiculo slot="adicionar"></adicionar-veiculo>
     <container-lista slot="lista" :lista-veiculos="lista"></container-lista>
     <detalhes-veiculo slot="detalhes"></detalhes-veiculo>
+    <editar-veiculo slot="editar"></editar-veiculo>
+    <container-modal v-if="getModalStatus" slot="modal"></container-modal>
   </layout-main>
 </template>
 
@@ -14,6 +16,8 @@ import headerLogo from "../components/headerLogo.vue";
 import adicionarVeiculo from "../components/adicionarVeiculo.vue";
 import containerLista from "../components/containerLista.vue";
 import detalhesVeiculo from "../components/detalhesVeiculo.vue";
+import editarVeiculo from "../components/editarVeiculo.vue";
+import containerModal from "../components/containerModal.vue";
 
 export default {
     components: {
@@ -22,12 +26,19 @@ export default {
         headerLogo,
         adicionarVeiculo,
         detalhesVeiculo,
+        editarVeiculo,
+        containerModal,
     },
     data() {
         return {
             loading: true,
             lista: [],
         };
+    },
+    computed: {
+        getModalStatus() {
+            return this.$nuxt.$store.state.toggleModal;
+        }
     },
     mounted() {
         const self = this;

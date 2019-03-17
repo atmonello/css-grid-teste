@@ -27,6 +27,11 @@
           <slot name="editar"></slot>
         </div>
       </section>
+      <section v-if="getModalStatus" id="modal">
+        <div class="modalSlot">
+          <slot name="modal"></slot>
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -99,6 +104,23 @@
       }
 
     }
+
+    #modal {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.25);
+      display: grid;
+      grid-template-rows: 2em 1fr 2em;
+      grid-template-columns: 2em 1fr 2em;
+
+      .modalSlot {
+        grid-column: 2;
+        grid-row: 2;
+      }
+    }
   }
 
 }
@@ -111,6 +133,11 @@ export default {
             required: true,
             type: Boolean,
         }
-    }
+    },
+    computed: {
+        getModalStatus() {
+            return this.$nuxt.$store.state.toggleModal;
+        }
+    },
 };
 </script>

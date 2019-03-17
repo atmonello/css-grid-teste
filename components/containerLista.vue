@@ -11,7 +11,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   grid-gap: 8px;
-  padding: 0 1em;
+  padding-right: 1em;
 }
 </style>
 
