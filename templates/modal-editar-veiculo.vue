@@ -30,6 +30,16 @@
         <label for="descricao">Descrição</label>
         <textarea id="descricao" class="form-control" cols="30" rows="10" @input="setEditarVeiculo($event.target.value, 'descricao')"></textarea>
       </div>
+      <div class="col-12 col-lg-6 offset-lg-6">
+        <div class="row">
+          <div class="col-6">
+            <button class="btn btn-primary">Adicionar</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-danger" @click="closeModal">Cancelar</button>
+          </div>
+        </div>
+      </div>
     </form>
 
     <code>INFO: {{ infoVeiculo }}</code>
@@ -83,6 +93,9 @@ export default {
             const self = this;
 
             self.editarVeiculo[type] = value;
+        },
+        closeModal() {
+            this.$nuxt.$store.commit("toggleModalStatus", false);
         }
 
     }

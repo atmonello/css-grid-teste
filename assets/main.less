@@ -32,4 +32,29 @@
 body {
     font-family: "Hind", "Helvetica", "Arial", sans-serif;
     color: @text-main;
+
+    .btn {
+        border-radius: 10px;
+        width: 100%;
+        &.btn-danger {
+            background-color: #ef6767;
+            border-color: #ef6767;
+    
+            &:hover {
+                background-color: #ce5b5b;
+                border-color: #ce5b5b;
+            }
+        }
+    
+        &.btn-primary {
+            background-color: #92bffc;
+            border-color: #92bffc;
+            
+            &:hover {
+                background-color: #85abe0;
+                border-color: #85abe0;
+            }
+        }
+    }
+
 }
