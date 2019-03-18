@@ -67,8 +67,10 @@ export default {
     },
     methods: {
         showEditModal(info) {
-            this.$nuxt.$emit("exibirModalEditarVeiculo", info);
             this.$nuxt.$store.commit("toggleModalStatus", true);
+            setTimeout(() => {
+                this.$nuxt.$emit("exibirModalEditarVeiculo", info);
+            }, 10);
         },
     }
 };

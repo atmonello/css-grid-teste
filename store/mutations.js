@@ -8,7 +8,6 @@ export default {
     },
 
     toggleModalStatus(state, data) {
-        console.log("toggle modal status");
         state.toggleModal = data;
     }
 };

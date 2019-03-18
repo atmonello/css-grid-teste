@@ -111,10 +111,10 @@
       position: absolute;
       top: 0;
       left: 0;
-      background: rgba(0,0,0,0.25);
+      background: rgba(255,255,255,0.5);
       display: grid;
-      grid-template-rows: 2em 1fr 2em;
-      grid-template-columns: 2em 1fr 2em;
+      grid-template-rows: 5em 1fr 6em;
+      grid-template-columns: 8em 1fr 8em;
 
       .modalSlot {
         grid-column: 2;
