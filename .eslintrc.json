@@ -28,6 +28,7 @@
         ],
         "no-shadow": 0,
         "no-param-reassign": 0,
-        "indent": ["warn", 4]
+        "indent": ["warn", 4],
+        "no-underscore-dangle": 0
     }
 }

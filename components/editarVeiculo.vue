@@ -23,6 +23,7 @@
         box-shadow: @shadow;
         color: @gray-dk;
         padding: 10px 10px 5px;
+        transition: filter 0.15s;
 
         span {
             vertical-align: text-top;
@@ -35,10 +36,6 @@
             mask-image: url("../assets/img/edit.svg");
             width: 20px;
             margin-right: 10px;
-        }
-
-        &:disabled {
-            opacity: 0.5;
         }
     }
     .vendido {

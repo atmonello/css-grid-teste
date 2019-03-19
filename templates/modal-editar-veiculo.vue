@@ -6,23 +6,23 @@
       </div>
     </div>
 
-    <form id="editar-form" class="row">
+    <form id="editar-form" class="row" @submit.prevent>
       <div class="col-6 form-group">
         <label for="modelo">Veículo</label>
-        <input id="modelo" :value="infoVeiculo.modelo" class="form-control" type="text" @input="setEditarVeiculo($event.target.value, 'modelo')">
+        <input id="modelo" v-model="editarVeiculo.modelo" class="form-control" type="text" @input="setEditarVeiculo($event.target.value, 'modelo')">
       </div>
       <div class="col-6 form-group">
         <label for="marca">Marca</label>
-        <input id="marca" :value="infoVeiculo.marca" class="form-control" type="text" @input="setEditarVeiculo($event.target.value, 'marca')">
+        <input id="marca" v-model="editarVeiculo.marca" class="form-control" type="text" @input="setEditarVeiculo($event.target.value, 'marca')">
       </div>
       <div class="col-6 form-group">
         <label for="ano">Ano</label>
-        <input id="ano" :value="infoVeiculo.ano_modelo" class="form-control" type="text" @input="setEditarVeiculo($event.target.value, 'ano_modelo')">
+        <input id="ano" v-model="editarVeiculo.ano_modelo" class="form-control" type="text" @input="setEditarVeiculo($event.target.value, 'ano_modelo')">
       </div>
       <div class="col-6 form-group">
         <p>&nbsp;</p>
         <div class="custom-control custom-switch">
-          <input id="usado" type="checkbox" class="custom-control-input" :value="true" :checked="infoVeiculo.usado" @input="setEditarVeiculo($event.target.value, 'usado')">
+          <input id="usado" type="checkbox" class="custom-control-input" :value="true" :checked="editarVeiculo.usado" @input="setEditarVeiculo($event.target.value, 'usado')">
           <label class="custom-control-label" for="usado">Usado</label>
         </div>
       </div>
@@ -33,7 +33,7 @@
       <div class="col-12 col-lg-6 offset-lg-6">
         <div class="row">
           <div class="col-6">
-            <button class="btn btn-primary">Adicionar</button>
+            <button class="btn btn-primary" @click="saveEdit">Salvar</button>
           </div>
           <div class="col-6">
             <button class="btn btn-danger" @click="closeModal">Cancelar</button>
@@ -43,8 +43,8 @@
     </form>
 
     <code>INFO: {{ infoVeiculo }}</code>
-    <br>
-    <code>EDITAR: {{ editarVeiculo }}</code>
+    <!-- <br> -->
+    <!-- <code>EDITAR: {{ editarVeiculo }}</code> -->
   </div>
 </template>
 
@@ -76,6 +76,8 @@
 
 
 <script>
+import axios from "axios";
+
 export default {
     props: {
         infoVeiculo: {
@@ -88,7 +90,16 @@ export default {
             editarVeiculo: {},
         };
     },
+    created() {
+        const self = this;
+
+        // eslint-disable-next-line array-callback-return
+        Object.keys(self.infoVeiculo).map((k) => {
+            self.editarVeiculo[k] = self.infoVeiculo[k];
+        });
+    },
     methods: {
+        // saves target vehicle data to copied object to avoid conflict with original data
         setEditarVeiculo(value, type) {
             const self = this;
 
@@ -96,8 +107,54 @@ export default {
         },
         closeModal() {
             this.$nuxt.$store.commit("toggleModalStatus", false);
-        }
+        },
+        // Saves current selected vehicle
+        saveEdit() {
+            const self = this;
 
+            const editar = self.editarVeiculo;
+            const ID = self.editarVeiculo._id;
+
+            console.log(editar);
+            console.log(JSON.stringify(editar));
+
+            axios({
+                url: "https://api.nimble.com.br/veiculoQL/v1/gql",
+                method: "post",
+                data: {
+                    query: `
+                      mutation UpdateVeiculo($data: JSON!, $id: ID!) {
+                        updateVeiculo(data: $data, id: $id) {
+                          data
+                          id
+                        }
+                      }
+                    `,
+                    variables: {
+                        data: editar,
+                        id: ID,
+                    }
+                }
+            });
+        },
     }
 };
 </script>
+
+mutation {
+  post(url: "www.prisma.io", description: "Prisma replaces traditional ORMs") {
+    id
+  }
+}
+
+
+mutation {
+  createUser(data: {
+      age: 42
+      email: "zeus@example.com"
+      name: "Zeus"
+    }) {
+    id
+    name
+  }
+}

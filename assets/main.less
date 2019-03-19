@@ -33,6 +33,17 @@ body {
     font-family: "Hind", "Helvetica", "Arial", sans-serif;
     color: @text-main;
 
+    button, .btn {
+        transition: filter 0.2s;
+        &:hover:not(:disabled) {
+            filter: brightness(0.95);
+        }
+
+        &:disabled {
+            opacity: 0.5;
+        }
+    }
+
     .btn {
         border-radius: 10px;
         width: 100%;
@@ -40,20 +51,20 @@ body {
             background-color: #ef6767;
             border-color: #ef6767;
     
-            &:hover {
-                background-color: #ce5b5b;
-                border-color: #ce5b5b;
-            }
+            // &:hover {
+            //     background-color: #ce5b5b;
+            //     border-color: #ce5b5b;
+            // }
         }
     
         &.btn-primary {
             background-color: #92bffc;
             border-color: #92bffc;
             
-            &:hover {
-                background-color: #85abe0;
-                border-color: #85abe0;
-            }
+            // &:hover {
+            //     background-color: #85abe0;
+            //     border-color: #85abe0;
+            // }
         }
     }
 
