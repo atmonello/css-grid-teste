@@ -69,4 +69,6 @@ module.exports = {
       }
     },
   },
+
+  buildDir: "docs"
 };
