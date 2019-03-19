@@ -1,3 +1,4 @@
 export default () => ({
-  teste: false,
+    veiculoSelecionado: null,
+    toggleModal: false,
 });
