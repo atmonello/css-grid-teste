@@ -110,31 +110,23 @@ export default {
         },
         // Saves current selected vehicle
         saveEdit() {
-            const self = this;
+            // const self = this;
 
-            const editar = self.editarVeiculo;
-            const ID = self.editarVeiculo._id;
+            // const editar = self.editarVeiculo;
+            // const ID = self.editarVeiculo._id;
 
-            console.log(editar);
-            console.log(JSON.stringify(editar));
+            // console.log(editar);
+            // console.log(JSON.stringify(editar));
 
             axios({
                 url: "https://api.nimble.com.br/veiculoQL/v1/gql",
                 method: "post",
                 data: {
                     query: `
-                      mutation Atualizar($data: ${JSON.stringify(editar)}, $id: ${ID}) {
-                        updateVeiculo(data: $data, id: $id) 
+                      mutation UpdateVeiculo {
+                        updateVeiculo(data: "${JSON.stringify(this.editarVeiculo)}", id: ${this.editarVeiculo._id})
                       }
-                    `
-                    // `
-                    //   mutation UpdateVeiculo($data: JSON!, $id: ID!) {
-                    //     updateVeiculo(data: $data, id: $id) {
-                    //       data
-                    //       id
-                    //     }
-                    //   }
-                    // `,
+                    `,
                     // variables: {
                     //     data: editar,
                     //     id: ID,
@@ -145,21 +137,3 @@ export default {
     }
 };
 </script>
-
-mutation {
-  post(url: "www.prisma.io", description: "Prisma replaces traditional ORMs") {
-    id
-  }
-}
-
-
-mutation {
-  createUser(data: {
-      age: 42
-      email: "zeus@example.com"
-      name: "Zeus"
-    }) {
-    id
-    name
-  }
-}
