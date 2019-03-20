@@ -1,6 +1,7 @@
 <template>
   <layout-main :is-loading="loading">
     <header-logo slot="logo"></header-logo>
+    <buscar-veiculo slot="search"></buscar-veiculo>
     <adicionar-veiculo slot="adicionar"></adicionar-veiculo>
     <container-lista slot="lista" :lista-veiculos="lista"></container-lista>
     <detalhes-veiculo slot="detalhes"></detalhes-veiculo>
@@ -18,6 +19,7 @@ import containerLista from "../components/containerLista.vue";
 import detalhesVeiculo from "../components/detalhesVeiculo.vue";
 import editarVeiculo from "../components/editarVeiculo.vue";
 import containerModal from "../components/containerModal.vue";
+import buscarVeiculo from "../components/buscarVeiculo.vue";
 
 export default {
     components: {
@@ -28,6 +30,7 @@ export default {
         detalhesVeiculo,
         editarVeiculo,
         containerModal,
+        buscarVeiculo,
     },
     data() {
         return {
@@ -38,6 +41,15 @@ export default {
     computed: {
         getModalStatus() {
             return this.$nuxt.$store.state.toggleModal;
+        },
+
+        getVehiclesFromStore() {
+            return this.$nuxt.$store.state.listaVeiculos;
+        }
+    },
+    watch: {
+        getVehiclesFromStore(val) {
+            this.lista = val;
         }
     },
     mounted() {
@@ -68,7 +80,7 @@ export default {
                 `
             }
         }).then((result) => {
-            self.lista = result.data.data.buscaVeiculo.edges;
+            self.$nuxt.$store.commit("updateListaVeiculos", result.data.data.buscaVeiculo.edges);
             self.loading = false;
         });
     }
