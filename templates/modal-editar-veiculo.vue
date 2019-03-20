@@ -123,17 +123,22 @@ export default {
                 method: "post",
                 data: {
                     query: `
-                      mutation UpdateVeiculo($data: JSON!, $id: ID!) {
-                        updateVeiculo(data: $data, id: $id) {
-                          data
-                          id
-                        }
+                      mutation Atualizar($data: ${JSON.stringify(editar)}, $id: ${ID}) {
+                        updateVeiculo(data: $data, id: $id) 
                       }
-                    `,
-                    variables: {
-                        data: editar,
-                        id: ID,
-                    }
+                    `
+                    // `
+                    //   mutation UpdateVeiculo($data: JSON!, $id: ID!) {
+                    //     updateVeiculo(data: $data, id: $id) {
+                    //       data
+                    //       id
+                    //     }
+                    //   }
+                    // `,
+                    // variables: {
+                    //     data: editar,
+                    //     id: ID,
+                    // }
                 }
             });
         },
