@@ -2,6 +2,7 @@
   <div class="container-lista">
     <p>Lista de veículos</p>
     <item-lista v-for="(veiculo, index) in listaVeiculos" :key="index" :info-veiculo="veiculo.node" @click.native="storeVeiculoSelecionado(veiculo.node)"></item-lista>
+    <div v-if="listaVeiculos.length == 0 || !listaVeiculos" class="alert alert-danger">Nenhum veículo encontrado!</div>
   </div>
 </template>
 

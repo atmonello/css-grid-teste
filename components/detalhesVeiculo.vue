@@ -3,7 +3,7 @@
     <p>Detalhes</p>
     <div v-if="getVeiculoSelecionadoInfo" class="container-detalhes container">
       <div class="row">
-        <p class="modelo col-12">{{ getVeiculoSelecionadoInfo.modelo.toUpperCase() }}</p>
+        <p class="modelo col-12">{{ getVeiculoSelecionadoInfo.modelo }}</p>
       </div>
       <div class="row">
         <div class="col-6">
@@ -22,7 +22,7 @@
         </div>
         <div class="col-6">
           <label>Cor</label>
-          <p class="cor">{{ getVeiculoSelecionadoInfo.cor.toUpperCase() }}</p>
+          <p class="cor">{{ getVeiculoSelecionadoInfo.cor }}</p>
         </div>
       </div>
       <div class="row">
@@ -34,6 +34,7 @@
         </div>
       </div>
     </div>
+    <div v-else class="alert alert-primary">Selecione um veículo.</div>
     <!-- <code>{{ getVeiculoSelecionadoInfo }}</code> -->
   </div>
 </template>

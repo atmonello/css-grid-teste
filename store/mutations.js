@@ -9,5 +9,9 @@ export default {
 
     toggleModalStatus(state, data) {
         state.toggleModal = data;
+    },
+
+    updateListaVeiculos(state, data) {
+        state.listaVeiculos = data;
     }
 };

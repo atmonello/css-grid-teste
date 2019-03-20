@@ -67,6 +67,7 @@
 
       .search {
         background-color: @blue-lt;
+        padding: 12px 24px;
       }
     }
 

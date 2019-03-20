@@ -1,10 +1,10 @@
 <template>
   <div class="editar-veiculo container">
     <div class="row">
-      <div class="col-10">
+      <div class="col-10 col-md-11">
         <button class="button-editar" :disabled="!getInfoVeiculo" @click="showEditModal(getInfoVeiculo)"><span class="editar-icone"></span><span>Editar</span></button>
       </div>
-      <div class="col-2">
+      <div class="col-2 col-md-1">
         <div class="vendido"></div>
       </div>
     </div>
