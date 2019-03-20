@@ -1,9 +1,0 @@
-.nuxt
-node_modules
-server
-docs
-
-nuxt.config.js
-package.json
-package-lock.json
-*.MD
