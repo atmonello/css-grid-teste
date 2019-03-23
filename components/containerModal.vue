@@ -1,7 +1,7 @@
 <template>
-  <div v-on-clickaway="closeModal" class="container-modal">
+  <div v-on-clickaway="closeModal" class="container-modal container">
     <modal-editar-veiculo v-if="modalType == 'editar'" :info-veiculo="modalContent"></modal-editar-veiculo>
-    <modal-adicionar-veiculo v-else-if="modalType == 'adicionar'"></modal-adicionar-veiculo>
+    <modal-adicionar-veiculo v-else-if="modalType == 'adicionar'" :modelo="modalContent"></modal-adicionar-veiculo>
   </div>
 </template>
 
@@ -43,6 +43,11 @@ export default {
             self.modalType = "editar";
             self.modalContent = data;
         });
+
+        self.$nuxt.$on("exibirModalAdicionarVeiculo", (data) => {
+            self.modalType = "adicionar";
+            self.modalContent = data;
+        });
     },
     methods: {
         closeModal() {
@@ -50,6 +55,8 @@ export default {
             this.modalContent = null;
 
             this.$nuxt.$store.commit("toggleModalStatus", false);
+
+            console.log(this.$nuxt.$refs);
         },
     }
 };

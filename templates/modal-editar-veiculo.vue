@@ -7,35 +7,34 @@
     </div>
 
     <form id="editar-form" class="row" @submit.prevent>
-      <div class="col-6 form-group">
+      <div class="col-12 col-md-6 form-group">
         <label for="modelo">Veículo</label>
-        <input id="modelo" v-model="editarVeiculo.modelo" class="form-control" type="text" @input="setEditarVeiculo($event.target.value, 'modelo')">
+        <input id="modelo" :value="editarVeiculo.modelo" class="form-control" type="text" @input="updateEditarVeiculo($event.target.value, 'modelo')">
       </div>
-      <div class="col-6 form-group">
+      <div class="col-12 col-md-6 form-group">
         <label for="marca">Marca</label>
-        <input id="marca" v-model="editarVeiculo.marca" class="form-control" type="text" @input="setEditarVeiculo($event.target.value, 'marca')">
+        <!-- <input id="marca" :value="editarVeiculo.marca" class="form-control" type="text"> -->
+        <select id="marca" :value="editarVeiculo.marca" class="form-control" @input="updateEditarVeiculo($event.target.value, 'marca')">
+          <option v-for="(item, index) in getListaMarcas" :key="index" :value="item.name">{{ item.name }}</option>
+        </select>
       </div>
-      <div class="col-6 form-group">
+      <div class="col-12 col-md-6 form-group">
         <label for="ano">Ano</label>
-        <input id="ano" v-model="editarVeiculo.ano_modelo" class="form-control" type="text" @input="setEditarVeiculo($event.target.value, 'ano_modelo')">
+        <input id="ano" :value="editarVeiculo.ano_modelo" class="form-control" type="text" @input="updateEditarVeiculo($event.target.value, 'ano_modelo')">
       </div>
-      <div class="col-6 form-group">
+      <div class="col-12 col-md-6 form-group">
         <p>&nbsp;</p>
         <div class="custom-control custom-switch">
-          <input id="usado" type="checkbox" class="custom-control-input" :value="true" :checked="editarVeiculo.usado" @input="setEditarVeiculo($event.target.value, 'usado')">
+          <input id="usado" :checked="editarVeiculo.usado" type="checkbox" class="custom-control-input" :value="true" @input="updateEditarVeiculo($event.target.value, 'usado')">
           <label class="custom-control-label" for="usado">Usado</label>
         </div>
       </div>
-      <div class="col-12 form-group">
-        <label for="descricao">Descrição</label>
-        <textarea id="descricao" class="form-control" cols="30" rows="10" @input="setEditarVeiculo($event.target.value, 'descricao')"></textarea>
-      </div>
-      <div class="col-12 col-lg-6 offset-lg-6">
+      <div class="col-12 col-md-6 offset-md-6">
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-sm-6">
             <button class="btn btn-primary" @click="saveEdit">Salvar</button>
           </div>
-          <div class="col-6">
+          <div class="col-12 col-sm-6">
             <button class="btn btn-danger" @click="closeModal">Cancelar</button>
           </div>
         </div>
@@ -43,8 +42,9 @@
     </form>
 
     <code>INFO: {{ infoVeiculo }}</code>
-    <!-- <br> -->
-    <!-- <code>EDITAR: {{ editarVeiculo }}</code> -->
+    <br>
+    <br>
+    <code>EDITAR: {{ editarVeiculo }}</code>
   </div>
 </template>
 
@@ -53,7 +53,7 @@
 
 .modal-editar-veiculo {
   #editar-form {
-    textarea, input[type="text"] {
+    textarea, input, select {
       background: transparent;
       border: 0;
       border-radius: 0;
@@ -69,6 +69,10 @@
         border-color: @green-lt;
         background-color: @green-lt;
         }
+    }
+
+    .btn {
+      margin-bottom: 10px;
     }
   }
 }
@@ -87,8 +91,13 @@ export default {
     },
     data() {
         return {
-            editarVeiculo: {},
+            editarVeiculo: {}
         };
+    },
+    computed: {
+        getListaMarcas() {
+            return this.$nuxt.$store.state.listaMarcas ? this.$nuxt.$store.state.listaMarcas : [];
+        }
     },
     created() {
         const self = this;
@@ -100,7 +109,7 @@ export default {
     },
     methods: {
         // saves target vehicle data to copied object to avoid conflict with original data
-        setEditarVeiculo(value, type) {
+        updateEditarVeiculo(value, type) {
             const self = this;
 
             self.editarVeiculo[type] = value;
@@ -110,7 +119,7 @@ export default {
         },
         // Saves current selected vehicle
         saveEdit() {
-            // const self = this;
+            const self = this;
 
             // const editar = self.editarVeiculo;
             // const ID = self.editarVeiculo._id;
@@ -123,14 +132,14 @@ export default {
                 method: "post",
                 data: {
                     query: `
-                      mutation UpdateVeiculo {
-                        updateVeiculo(data: "${JSON.stringify(this.editarVeiculo)}", id: ${this.editarVeiculo._id})
+                      mutation UpdateVeiculo($data: JSON!, $id: ID!) {
+                        updateVeiculo(data: $data, id: $id)
                       }
                     `,
-                    // variables: {
-                    //     data: editar,
-                    //     id: ID,
-                    // }
+                    variables: {
+                        data: self.editarVeiculo,
+                        id: self.editarVeiculo._id,
+                    }
                 }
             });
         },

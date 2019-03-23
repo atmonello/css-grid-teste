@@ -2,10 +2,10 @@
   <div class="adicionar-veiculo container-fluid">
     <div class="row">
       <div class="col-11">
-        <input type="text" name="veiculo" placeholder="Adicionar um veículo...">
+        <input id="veiculo" v-model="modelo" type="text" placeholder="Adicionar um veículo...">
       </div>
       <div class="col-1">
-        <div class="add-icone"></div>
+        <div class="add-icone" @click="showAddModal(modelo)"></div>
       </div>
     </div>
   </div>
@@ -49,7 +49,16 @@
 export default {
     data() {
         return {
+            modelo: null,
         };
+    },
+    methods: {
+        showAddModal(modelo) {
+            this.$nuxt.$store.commit("toggleModalStatus", true);
+            setTimeout(() => {
+                this.$nuxt.$emit("exibirModalAdicionarVeiculo", modelo);
+            }, 10);
+        },
     }
 };
 </script>

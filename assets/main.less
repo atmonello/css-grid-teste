@@ -68,4 +68,15 @@ body {
         }
     }
 
+    .form-disabled {
+        * {
+            opacity: 0.75;
+        }
+
+        input, select, textarea {
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+
 }
