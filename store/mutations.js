@@ -13,5 +13,13 @@ export default {
 
     updateListaVeiculos(state, data) {
         state.listaVeiculos = data;
+    },
+
+    updateListaCombustiveis(state, data) {
+        state.listaCombustiveis = data;
+    },
+
+    updateListaMarcas(state, data) {
+        state.listaMarcas = data;
     }
 };

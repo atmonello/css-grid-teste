@@ -57,7 +57,7 @@ export default {
                     data: {
                         query: `
                             query Buscar {
-                                buscaVeiculo(page: 1, limit: 50, query: "${search}") {
+                                buscaVeiculo(page: 1, query: "${search}") {
                                     total
                                     edges {
                                         node {

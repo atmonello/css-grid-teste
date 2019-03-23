@@ -53,10 +53,6 @@
 
 <script>
 export default {
-    data() {
-        return {
-        };
-    },
     computed: {
         getInfoVeiculo() {
             return this.$nuxt.$store.state.veiculoSelecionado;

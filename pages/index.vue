@@ -60,6 +60,44 @@ export default {
             method: "post",
             data: {
                 query: `
+                  query enumValuesOfCombustivelType {
+                    __type(name: "CombustivelType") {
+                      name
+                      enumValues {
+                        name
+                      }
+                    }
+                  }
+                `
+            }
+        }).then((result) => {
+            self.$nuxt.$store.commit("updateListaCombustiveis", result.data.data.__type.enumValues);
+        });
+
+        axios({
+            url: "https://api.nimble.com.br/veiculoQL/v1/gql",
+            method: "post",
+            data: {
+                query: `
+                  query enumValuesOfMarcaType {
+                    __type(name: "MarcaType") {
+                      name
+                      enumValues {
+                        name
+                      }
+                    }
+                  }
+                `
+            }
+        }).then((result) => {
+            self.$nuxt.$store.commit("updateListaMarcas", result.data.data.__type.enumValues);
+        });
+
+        axios({
+            url: "https://api.nimble.com.br/veiculoQL/v1/gql",
+            method: "post",
+            data: {
+                query: `
                   query ListarTodosVeiculos {
                     buscaVeiculo(page: 1, limit: 6) {
                       total
