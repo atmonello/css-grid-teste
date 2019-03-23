@@ -55,8 +55,6 @@ export default {
             this.modalContent = null;
 
             this.$nuxt.$store.commit("toggleModalStatus", false);
-
-            console.log(this.$nuxt.$refs);
         },
     }
 };
