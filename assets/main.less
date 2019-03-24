@@ -28,10 +28,25 @@
 @ftSizeSubTitle: 2rem;
 @ftSizeTitle: 2.5rem;
 
+// Media queries
+// xl1200
+// lg992
+// md768
+// sm576
+@screen-xl-min: 1200px;
+@screen-xl-max: @screen-xl-min - 1px;
+@screen-lg-min: 992px;
+@screen-lg-max: @screen-lg-min - 1px;
+@screen-md-max: 768px;
+@screen-md-min: @screen-md-max - 1px;
+@screen-sm-max: 576px;
+@screen-sm-min: @screen-sm-max - 1px;
+
 // Fonte Hind Regular/Light
 body {
     font-family: "Hind", "Helvetica", "Arial", sans-serif;
     color: @text-main;
+    overflow: hidden;
 
     button, .btn {
         transition: filter 0.2s;

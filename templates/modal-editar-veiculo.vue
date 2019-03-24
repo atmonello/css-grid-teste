@@ -41,10 +41,10 @@
       </div>
     </form>
 
-    <code>INFO: {{ infoVeiculo }}</code>
-    <br>
-    <br>
-    <code>EDITAR: {{ editarVeiculo }}</code>
+    <!-- <code>INFO: {{ infoVeiculo }}</code> -->
+    <!-- <br> -->
+    <!-- <br> -->
+    <!-- <code>EDITAR: {{ editarVeiculo }}</code> -->
   </div>
 </template>
 

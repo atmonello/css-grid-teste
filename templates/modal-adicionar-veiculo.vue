@@ -54,9 +54,9 @@
       </div>
     </form>
 
-    <div id="debug" class="row">
-      <p class="col-12">{{ novoVeiculo }}</p>
-    </div>
+    <!-- <div id="debug" class="row"> -->
+    <!-- <p class="col-12">{{ novoVeiculo }}</p> -->
+    <!-- </div> -->
   </div>
 </template>
 
