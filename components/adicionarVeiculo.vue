@@ -1,10 +1,10 @@
 <template>
   <div class="adicionar-veiculo container-fluid">
     <div class="row">
-      <div class="col-11">
+      <div class="col-10 col-sm-11">
         <input id="veiculo" v-model="modelo" type="text" placeholder="Adicionar um veículo...">
       </div>
-      <div class="col-1">
+      <div class="col-2 col-sm-1">
         <div class="add-icone" @click="showAddModal(modelo)"></div>
       </div>
     </div>
@@ -16,7 +16,7 @@
 
 .adicionar-veiculo {
     border-bottom: 1px solid @gray-md;
-    height: 100%;
+    // height: 100%;
 
     input {
       background-color: transparent;
