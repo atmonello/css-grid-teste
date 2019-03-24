@@ -52,7 +52,7 @@
   .page {
     display: grid;
     grid-template-rows: 1fr minmax(auto, calc(100vh - 50px));
-    grid-row-gap: 8px;
+    grid-gap: 1em;
     grid-template-columns: 100vw;
     padding-bottom: 1em;
 
@@ -85,20 +85,23 @@
     #content {
       display: grid;
       grid-template-areas: "adicionar" "lista" "detalhes" "editar";
-      grid-template-rows: 1fr 50vh 1fr 150px;
+      grid-template-rows: 1fr 2fr 3fr 1fr;
         // grid-template-columns: repeat(2, minmax(100px, 1fr)) repeat(2, minmax(200px, 1fr));
-      grid-row-gap: 8px;
 
       @media (min-width: @screen-sm-min) {
-        padding: 3em;
+        // padding: 3em;
         grid-column: span 8;
+        grid-template-columns: repeat(4, 1fr);
         grid-template-areas:
           "adicionar adicionar adicionar adicionar"
           "lista lista detalhes detalhes"
           "lista lista editar editar";
         grid-row-gap: 8px;
         grid-column-gap: 16px;
+      }
 
+      @media (min-width: @screen-md-min) {
+        grid-template-rows: 1fr 10fr 1fr 1fr;
       }
 
       .adicionar {
@@ -117,6 +120,8 @@
 
       .detalhes {
         grid-area: detalhes;
+        overflow-y: scroll;
+        overflow-x: hidden;
         // max-height: 400px;
       }
 

@@ -43,8 +43,8 @@
 @import "~assets/main.less";
 
 .detalhes-veiculo {
-    height: 100%;
-    border-bottom: 1px solid @gray-md;
+    // height: 100%;
+    // border-bottom: 1px solid @gray-md;
     .container-detalhes {
         padding: 1em;
         p {

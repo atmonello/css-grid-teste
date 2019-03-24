@@ -16,6 +16,7 @@
 
 .adicionar-veiculo {
     border-bottom: 1px solid @gray-md;
+    margin: 16px 0;
     // height: 100%;
 
     input {
