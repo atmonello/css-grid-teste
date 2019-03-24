@@ -16,6 +16,7 @@
 
 .editar-veiculo {
     padding-top: 1em;
+    border-top: 1px solid @gray-md;
     .button-editar {
         background-color: @edit-vehicle;
         border: none;

@@ -21,12 +21,14 @@
         height: 20px;
         background-color: @white;
         mask-image: url("../assets/img/search.svg");
-        margin-right: 16px;
+        margin-right: 8px;
     }
 
     input {
         background: transparent;
         border: 0;
+        overflow: hidden;
+        width: calc(100% - 40px);
         &::placeholder {
             font-weight: 300;
             color: @white;
