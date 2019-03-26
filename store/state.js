@@ -4,4 +4,5 @@ export default () => ({
     listaVeiculos: [],
     listaCombustiveis: [],
     listaMarcas: [],
+    searchQuery: null,
 });

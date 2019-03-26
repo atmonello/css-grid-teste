@@ -20,7 +20,7 @@
       </div>
       <div class="col-6 form-group">
         <label for="ano">Ano</label>
-        <input id="ano" v-model="novoVeiculo.ano_modelo" type="text">
+        <input id="ano" v-model.number="novoVeiculo.ano_modelo" type="text">
       </div>
       <div class="col-6 form-group">
         <label>&nbsp;</label>

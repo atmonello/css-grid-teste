@@ -21,5 +21,9 @@ export default {
 
     updateListaMarcas(state, data) {
         state.listaMarcas = data;
+    },
+
+    setSearchQuery(state, data) {
+        state.searchQuery = data;
     }
 };
