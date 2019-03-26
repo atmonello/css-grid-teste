@@ -25,8 +25,8 @@
       <div class="col-6 form-group">
         <label>&nbsp;</label>
         <div class="custom-control custom-switch">
-          <input id="usado" v-model="novoVeiculo.usado" type="checkbox" class="custom-control-input" :value="true" :disabled="finished">
-          <label class="custom-control-label" for="usado">Usado</label>
+          <input id="vendido" v-model="novoVeiculo.vendido" type="checkbox" class="custom-control-input" :value="true" :disabled="finished">
+          <label class="custom-control-label" for="vendido">Vendido</label>
         </div>
       </div>
       <div class="col-6 form-group">
@@ -98,9 +98,10 @@ export default {
                 modelo: null,
                 marca: null,
                 ano_modelo: null,
-                usado: null,
+                vendido: null,
                 combustivel: null,
                 cor: null,
+                descricao: null,
             }
         };
     },

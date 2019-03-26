@@ -70,7 +70,8 @@ export default {
                                             ano_modelo
                                             combustivel
                                             cor
-                                            usado
+                                            descricao
+                                            vendido
                                         }
                                     }
                                 }

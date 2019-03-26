@@ -25,8 +25,8 @@
       <div class="col-12 col-md-6 form-group">
         <p>&nbsp;</p>
         <div class="custom-control custom-switch">
-          <input id="usado" :checked="editarVeiculo.usado" type="checkbox" class="custom-control-input" :value="true" @input="updateEditarVeiculo($event.target.value, 'usado')">
-          <label class="custom-control-label" for="usado">Usado</label>
+          <input id="vendido" :checked="editarVeiculo.vendido" type="checkbox" class="custom-control-input" :value="true" @input="updateEditarVeiculo($event.target.value, 'vendido')">
+          <label class="custom-control-label" for="vendido">Vendido</label>
         </div>
       </div>
       <div class="col-12 col-md-6 offset-md-6">
