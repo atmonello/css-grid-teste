@@ -26,11 +26,16 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-12">
+          <label for="descricao">Descrição</label>
+          <p id="descricao">{{ getVeiculoSelecionadoInfo.descricao }}</p>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-6">
-          <!-- <input id="usado" v-model="getVeiculoSelecionadoInfo.usado" type="checkbox" :value="true"> -->
-          <label>Usado</label>
-          <p v-if="getVeiculoSelecionadoInfo.usado" class="usado">Sim</p>
-          <p v-else class="usado">Não</p>
+          <label>Vendido</label>
+          <p v-if="getVeiculoSelecionadoInfo.vendido" class="vendido">Sim</p>
+          <p v-else class="vendido">Não</p>
         </div>
       </div>
     </div>

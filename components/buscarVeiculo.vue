@@ -52,6 +52,8 @@ export default {
         buscarVeiculo(search) {
             const self = this;
 
+            self.$nuxt.$store.commit("setSearchQuery", search);
+
             if (!self.isSearching) {
                 axios({
                     url: "https://api.nimble.com.br/veiculoQL/v1/gql",
@@ -70,7 +72,8 @@ export default {
                                             ano_modelo
                                             combustivel
                                             cor
-                                            usado
+                                            descricao
+                                            vendido
                                         }
                                     }
                                 }
