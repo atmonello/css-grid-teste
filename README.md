@@ -1,22 +1,23 @@
 # css-grid-teste
 
-> Estudo de implementação de CRUD de veículos usando CSS grid e GraphQL para consumo de APIs.
+Estudo de implementação de CRUD de veículos usando CSS grid e GraphQL para consumo de APIs.
 
-## Build Setup
+## Tecnologias usadas
 
-``` bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
+```
+Vue JS
+Bootstrap
+Nuxt
+Vuex
+LESS
+Axios
+ESLint
+Vue-ClickAway
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Instruções
+
+Para acessar o projeto, basta clicar no link no título do repositório, ou [aqui](https://atmonello.github.io/css-grid-teste/).
+
+## Créditos
+André Monello - atmonello [at] gmail [dot] com
